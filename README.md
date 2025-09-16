@@ -1,4 +1,4 @@
-# vue-font-min
+# vue-fontmin
 
 Fontmin for Vue.js
 
