@@ -55,9 +55,14 @@ const downloadFont = () => {
 <template>
   <div class="font-preview">
     <div class="font-preview-wrap" :style="[styles]" v-html="preview"></div>
-    <div class="font-preview-button">
-      <n-button type="primary" :disabled="!props.base64" @click="copyCode">复制代码</n-button>
-      <n-button type="info" :disabled="!props.base64" @click="downloadFont">下载字体文件</n-button>
+    <div class="font-preview-toolbar">
+      <h3>CSS样式</h3>
+      <div class="font-preview-toolbar-button">
+        <n-button type="primary" :disabled="!props.base64" @click="copyCode">复制代码</n-button>
+        <n-button type="info" :disabled="!props.base64" @click="downloadFont"
+          >下载字体文件</n-button
+        >
+      </div>
     </div>
     <div class="font-preview-css">
       <Codemirror style="height: 150px" v-model="code" disabled :extensions="[css()]" />
@@ -83,12 +88,19 @@ const downloadFont = () => {
     flex: 1;
   }
 
-  &-button {
+  &-toolbar {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     gap: 10px;
+
+    &-button {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
   }
 
   &-css {
