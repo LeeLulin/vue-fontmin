@@ -56,6 +56,10 @@ const onGenerate = (data: { arrayBuffer: ArrayBuffer; name: string }) => {
 <template>
   <n-message-provider>
     <div class="main-container">
+      <a class="github" href="https://github.com/LeeLulin/vue-fontmin" target="_blank">
+        <img src="@/assets/github.svg" />
+      </a>
+
       <FontInput
         v-model:text="text"
         @font-loaded="onFontLoaded"
@@ -80,7 +84,18 @@ const onGenerate = (data: { arrayBuffer: ArrayBuffer; name: string }) => {
   display: flex;
   flex-direction: row;
   overflow: hidden;
-  padding: 20px;
+  padding: 50px 20px 20px;
   gap: 20px;
+
+  .github {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
 }
 </style>
