@@ -2,7 +2,7 @@
 import { createFont } from 'fonteditor-core'
 import type { UploadFileInfo } from 'naive-ui'
 
-const emit = defineEmits(['font-loaded', 'reset'])
+const emit = defineEmits(['font-loaded', 'reset', 'generate'])
 
 const message = useMessage()
 
@@ -63,19 +63,6 @@ const getTextUnicode = (): number[] => {
   return Array.from(unicodeArray) as number[]
 }
 
-const downloadFont = (buffer: ArrayBuffer, name: string) => {
-  const blob = new Blob([buffer])
-  const url = window.URL.createObjectURL(blob)
-  const link = document.createElement('a')
-  link.style.display = 'none'
-  link.href = url
-  link.setAttribute('download', name)
-  document.body.appendChild(link)
-  link.click()
-  document.body.removeChild(link)
-  window.URL.revokeObjectURL(url)
-}
-
 const generate = async () => {
   loading.value = true
 
@@ -93,8 +80,9 @@ const generate = async () => {
   const buffer = font.write({
     type: 'ttf',
   })
-  downloadFont(buffer, file.name)
+
   loading.value = false
+  emit('generate', { arrayBuffer: buffer, name: file.name })
 }
 </script>
 
@@ -107,6 +95,7 @@ const generate = async () => {
       type="textarea"
       :disabled="loading"
       clearable
+      :resizable="false"
     />
     <div class="font-upload">
       <n-upload
