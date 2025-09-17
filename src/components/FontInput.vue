@@ -109,7 +109,7 @@ const generate = async () => {
         :on-change="onFileChange"
       >
         <n-upload-dragger v-if="fileList.length === 0">
-          <n-text style="font-size: 16px"> 点击或者拖动文件到该区域来上传 </n-text>
+          <n-text style="font-size: 16px">点击或者拖动文件到该区域来上传(仅支持.ttf格式)</n-text>
         </n-upload-dragger>
         <div v-else class="font-upload-file">
           <span>{{ fileList[0].name }}</span>
