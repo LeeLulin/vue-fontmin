@@ -11,16 +11,12 @@ declare module 'vue' {
     FontInput: typeof import('./src/components/FontInput.vue')['default']
     FontPreview: typeof import('./src/components/FontPreview.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
-    NIcon: typeof import('naive-ui')['NIcon']
     NInput: typeof import('naive-ui')['NInput']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
-    NP: typeof import('naive-ui')['NP']
-    NSplit: typeof import('naive-ui')['NSplit']
     NText: typeof import('naive-ui')['NText']
     NUpload: typeof import('naive-ui')['NUpload']
     NUploadDragger: typeof import('naive-ui')['NUploadDragger']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TextInput: typeof import('./src/components/FontInput.vue')['default']
   }
 }
